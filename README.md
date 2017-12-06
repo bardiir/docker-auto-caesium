@@ -5,7 +5,7 @@ Docker container that uses bardiir/caesium to auto-optimize a full directory of 
 
 ## Usage
 ```
-$ docker run -v /path/to/your/image/files:/caesium bardiir/auto-caesium in out
+$ docker run -v /path/to/your/image/files:/caesium bardiir/auto-caesium
 ```
 
-This will mount the folder `/path/to/your/image/files` into the docker image and convert all files within the folder `in` within that folder or copy them if not convertable. `out` will be a 1:1 duplication of `in` just with the images optimized. For not Quality is fixed at `-q80` for caesium.
+This will mount the folder `/path/to/your/image/files` into the docker image and convert all files within the folder replacing image files with optimized versions and leaving everything that cannot be optimized without errors as is.

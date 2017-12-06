@@ -4,5 +4,4 @@ RUN     apk add --no-cache --update bash && rm -rf /var/cache/apk/*
 COPY    ./entrypoint.sh /caesiumbin/entrypoint.sh
 RUN     chmod +x /caesiumbin/entrypoint.sh
 
-ENTRYPOINT  ["/caesiumbin/entrypoint.sh"]
-CMD     ["in","out"]
+ENTRYPOINT  ["/caesiumbin/entrypoint.sh",""]
