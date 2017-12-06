@@ -9,3 +9,7 @@ $ docker run -v /path/to/your/image/files:/caesium bardiir/auto-caesium
 ```
 
 This will mount the folder `/path/to/your/image/files` into the docker image and convert all files within the folder replacing image files with optimized versions and leaving everything that cannot be optimized without errors as is.
+
+## Disclaimer
+
+The software used in this container is far from beeing stable. As this container does replace files inline make sure to keep a backup of all files at any time prior to using this as this can corrupt data.
