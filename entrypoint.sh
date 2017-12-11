@@ -12,7 +12,13 @@ do
             rm -rf "/tmp/caesium/*";
             caesiumclt -q 80 -o "/tmp/caesium/" "${file}" | cat; # suppress segmentation faults from caesium for the time beeing
             if [ ${PIPESTATUS[0]} -eq 0 ]; then
-                cp "/tmp/caesium/${file}" "${file}";
+                oldsize=$(wc -c <"${file}")
+                newsize=$(wc -c <"/tmp/caesium/${file}")
+                if [ $newsize -lt $oldsize ]; then
+                    cp "/tmp/caesium/${file}" "${file}";
+                else
+                    echo "Optimized file is not smaller. Skipping";
+                fi
             else
                 echo "Optimizing file ${file} failed. Skipping";
             fi
