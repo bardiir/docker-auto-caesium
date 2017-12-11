@@ -13,7 +13,6 @@ $ docker run -v /path/to/your/image/files:/caesium bardiir/auto-caesium
 
 ## ToDo
 - Don't optimize already optimized images again
-- Keep original version of the image if optimized version is bigger
 
 ## Disclaimer / Warning
 
