@@ -11,9 +11,6 @@ $ docker run -v /path/to/your/image/files:/caesium bardiir/auto-caesium
 `docker pull bardiir/auto-caesium` does update the instance image.  
 `docker run...` will mount the folder `/path/to/your/image/files` into the docker image and convert all files within that folder replacing image files with optimized versions and leaving everything that cannot be optimized without errors as is.
 
-## ToDo
-- Don't optimize already optimized images again
-
 ## Disclaimer / Warning
 
 The software used in this container is far from beeing stable. As this container does replace files inline make sure to keep a backup of all files at any time prior to using this as this can corrupt data and cause potential data loss on everything it is used on!
