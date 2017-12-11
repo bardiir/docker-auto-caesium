@@ -9,6 +9,12 @@ do
         /caesiumbin/entrypoint.sh "${1}/${file}";
     else 
         if ( [ ${file: -4} == ".png" ] || [ ${file: -4} == ".jpg" ] ); then
+            if grep -Fxq "${file}" /caesium/.caesiumoptimized
+            then
+                echo "${file} already optimized in previous run. Skipping";
+                continue
+            fi
+            
             rm -rf "/tmp/caesium/*";
             caesiumclt -q 80 -o "/tmp/caesium/" "${file}" | cat; # suppress segmentation faults from caesium for the time beeing
             if [ ${PIPESTATUS[0]} -eq 0 ]; then
@@ -22,6 +28,8 @@ do
             else
                 echo "Optimizing file ${file} failed. Skipping";
             fi
+            
+            echo "${file}" >> /caesium/.caesiumoptimized
         fi
     fi
 done
