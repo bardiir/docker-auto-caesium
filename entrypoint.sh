@@ -21,7 +21,9 @@ do
                 oldsize=$(wc -c <"${file}")
                 newsize=$(wc -c <"/tmp/caesium/${file}")
                 if [ $newsize -lt $oldsize ]; then
-                    cp "/tmp/caesium/${file}" "${file}";
+                    chown `stat -c "%u:%g" "${file}"` "/tmp/caesium/${file}";
+                    chmod `stat -c "%a" "${file}"` "/tmp/caesium/${file}";
+                    mv "/tmp/caesium/${file}" "${file}";
                 else
                     echo "Optimized file is not smaller. Skipping";
                 fi
