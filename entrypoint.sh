@@ -2,7 +2,7 @@
 shopt -s nullglob
 
 echo "Processing ${1}";
-cd /caesium/$1;
+cd "/caesium/$1";
 for file in *
 do
     if [ -d "${file}" ] ; then
